@@ -3,11 +3,20 @@ import { Container, Text, VStack, Box, FormControl, FormLabel } from "@chakra-ui
 import Select from "react-select";
 
 const options = [
-  { value: "manager", label: "Manager" },
-  { value: "center_code", label: "Center Code" },
-  { value: "department", label: "Department" },
-  { value: "id", label: "Id" },
+  { value: "1", manager: "John Doe", center_code: "CC001", department: "HR", id: "1" },
+  { value: "2", manager: "Jane Smith", center_code: "CC002", department: "Finance", id: "2" },
+  { value: "3", manager: "Mike Johnson", center_code: "CC003", department: "IT", id: "3" },
+  { value: "4", manager: "Emily Davis", center_code: "CC004", department: "Marketing", id: "4" },
 ];
+
+const formatOptionLabel = ({ manager, center_code, department, id }) => (
+  <div>
+    <div><strong>Manager:</strong> {manager}</div>
+    <div><strong>Center Code:</strong> {center_code}</div>
+    <div><strong>Department:</strong> {department}</div>
+    <div><strong>Id:</strong> {id}</div>
+  </div>
+);
 
 const Index = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -31,6 +40,7 @@ const Index = () => {
               classNamePrefix="select"
               onChange={handleChange}
               value={selectedOptions}
+              formatOptionLabel={formatOptionLabel}
             />
           </FormControl>
         </Box>
