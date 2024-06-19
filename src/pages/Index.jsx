@@ -11,10 +11,10 @@ const options = [
 
 const formatOptionLabel = ({ manager, center_code, department, id }) => (
   <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-    <div style={{ flex: 1 }}><strong>Manager:</strong> {manager}</div>
-    <div style={{ flex: 1 }}><strong>Center Code:</strong> {center_code}</div>
-    <div style={{ flex: 1 }}><strong>Department:</strong> {department}</div>
-    <div style={{ flex: 1 }}><strong>Id:</strong> {id}</div>
+    <div style={{ flex: 1, padding: '0 5px' }}><strong>Manager:</strong> {manager}</div>
+    <div style={{ flex: 1, padding: '0 5px' }}><strong>Center Code:</strong> {center_code}</div>
+    <div style={{ flex: 1, padding: '0 5px' }}><strong>Department:</strong> {department}</div>
+    <div style={{ flex: 1, padding: '0 5px' }}><strong>Id:</strong> {id}</div>
   </div>
 );
 
@@ -41,6 +41,13 @@ const Index = () => {
               onChange={handleChange}
               value={selectedOptions}
               formatOptionLabel={formatOptionLabel}
+              styles={{
+                option: (provided) => ({
+                  ...provided,
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }),
+              }}
             />
           </FormControl>
         </Box>
